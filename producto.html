@@ -31,19 +31,47 @@
 
   <section>
   <div class="card">
-    <h2>Gráfico: Notas Finales por Estudiante</h2>
+    <h2>Gráficos Importantes En El Analisis De Datos </h2>
     <canvas id="graficoNotas" width="400" height="200"></canvas>
   </div>
 
   <div class="card left-text">
   <h2>Conclusiones</h2>
-  <ul>
-    <li>La mayoría de estudiantes tienen un rendimiento académico aceptable...</li>
-    <li>Los estudiantes con mayor asistencia presentan mejores resultados académicos.</li>
-    <li>Existe una relación clara entre baja asistencia y bajo rendimiento.</li>
-    <li>El promedio general del grupo es de 3.72, cercano al aprobado.</li>
-    <li>El gráfico de barras permite visualizar fácilmente los resultados.</li>
-  </ul>
+  <meta charset="UTF-8">
+  <title>Gráficos de Matrícula</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+
+<h2>Comparación de matrícula masculina y femenina (6 a 10 años)</h2>
+
+<py-config>
+  packages = ["matplotlib", "seaborn", "pandas"]
+</py-config>
+
+<py-script>
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+# Ejemplo de datos ficticios
+df = pd.DataFrame({
+    'matriculacion_masc_6a10': [120, 130, 140, 150, 160],
+    'matriculacion_fem_6a10': [110, 115, 120, 125, 130],
+})
+
+plt.style.use('seaborn-v0_8-whitegrid')
+sns.set_palette("crest")
+
+plt.figure(figsize=(8,4))
+df[['matriculacion_masc_6a10', 'matriculacion_fem_6a10']].plot(kind='bar')
+plt.title('Comparación de matrícula (6 a 10 años)')
+plt.xlabel('Departamento')
+plt.ylabel('Número de matrículas')
+plt.legend(['Masculina', 'Femenina'])
+plt.show()
+</py-script>
 </div>
 
 <div class="card left-text">
